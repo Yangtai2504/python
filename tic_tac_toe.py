@@ -6,7 +6,7 @@ from tkinter import messagebox
 pygame.init()
 
 WIDTH, HEIGHT = 600, 600
-LINE_WIDTH = 10
+LINE_WIDTH = 8
 BOARD_ROWS, BOARD_COLS = 3, 3  
 SQUARE_SIZE = WIDTH // BOARD_COLS
 PADDING = 20  
@@ -17,7 +17,7 @@ RED = (200, 0, 0)
 BLUE = (0, 0, 200)
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tic Tac Toe AI")
+pygame.display.set_caption("Tic Tac Toe")
 
 
 board = np.zeros((BOARD_ROWS, BOARD_COLS), dtype=int)
@@ -39,12 +39,12 @@ def draw_figures():
             center_y = row * SQUARE_SIZE + SQUARE_SIZE // 2
             if board[row][col] == 2:  
                 pygame.draw.line(screen, RED, (center_x - SQUARE_SIZE // 2 + PADDING, center_y - SQUARE_SIZE // 2 + PADDING),
-                                 (center_x + SQUARE_SIZE // 2 - PADDING, center_y + SQUARE_SIZE // 2 - PADDING), LINE_WIDTH)
+                                 (center_x + SQUARE_SIZE // 2 - PADDING, center_y + SQUARE_SIZE // 2 - PADDING), LINE_WIDTH * 2)
                 pygame.draw.line(screen, RED, (center_x + SQUARE_SIZE // 2 - PADDING, center_y - SQUARE_SIZE // 2 + PADDING),
-                                 (center_x - SQUARE_SIZE // 2 + PADDING, center_y + SQUARE_SIZE // 2 - PADDING), LINE_WIDTH)
+                                 (center_x - SQUARE_SIZE // 2 + PADDING, center_y + SQUARE_SIZE // 2 - PADDING), LINE_WIDTH * 2)
 
             elif board[row][col] == 1:  
-                pygame.draw.circle(screen, BLUE, (center_x, center_y), SQUARE_SIZE // 2 - PADDING, LINE_WIDTH)
+                pygame.draw.circle(screen, BLUE, (center_x, center_y), SQUARE_SIZE // 2 - PADDING, LINE_WIDTH * 2)
 
 def mark_square(row, col, player):
     board[row][col] = player
