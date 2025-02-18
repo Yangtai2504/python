@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 pygame.init()
+#hehehe
 
 WIDTH, HEIGHT = 600, 600
 LINE_WIDTH = 8
